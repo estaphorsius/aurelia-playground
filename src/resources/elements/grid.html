@@ -1,5 +1,14 @@
 <template>
-    <ul>
-        <li repeat.for="row of data">${row.name}</li>
-    </ul>
+    <table class="table table-listview">
+        <thead>
+            <tr>
+                <th repeat.for="column of options.columns">${column.display}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="row of data">
+                <td repeat.for="column of options.columns">${row[column.name]}</td>
+            </tr>
+        </tbody>
+    </table>
 </template>

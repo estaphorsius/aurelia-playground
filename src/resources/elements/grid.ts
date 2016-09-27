@@ -1,11 +1,12 @@
 import { bindable } from 'aurelia-framework'
 
 export class GridColumn {
-
+    name: string;
+    display: string;
 }
 
 export class GridOptions {
-    columns:  GridColumn[];
+    columns: GridColumn[];
     pagerEnabled: boolean;
     pageSize: number;
 }

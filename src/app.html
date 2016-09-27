@@ -4,14 +4,20 @@
         <h1>Grid</h1>
 
         <form>
-            <div class="form-group">
-                <label for="dataJson">Data (json)</label>
-                <textarea class="form-control" value.bind="gridDataJson"></textarea>
-            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dataJson">Data (json)</label>
+                        <textarea class="form-control" value.bind="gridDataJson" rows="10"></textarea>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label for="dataOptionsJson">Options (json)</label>
-                <textarea class="form-control" value.bind="gridOptionJson"></textarea>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dataOptionsJson">Options (json)</label>
+                        <textarea class="form-control" value.bind="gridOptionJson" rows="10"></textarea>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
