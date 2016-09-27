@@ -10,5 +10,23 @@
                 <td repeat.for="column of options.columns">${row[column.name]}</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="${options.columns.length}">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <span>
+                                  <span aria-hidden="true">&laquo;</span>
+                                </span>
+                            </li>
+                            <li class="active">
+                                <span>1 <span class="sr-only">(current)</span></span>
+                            </li>
+                        </ul>
+                    </nav>
+                </td>
+            </tr>
+        </tfoot>
     </table>
 </template>

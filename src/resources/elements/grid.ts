@@ -12,9 +12,14 @@ export class GridOptions {
 }
 
 export class Grid {
+    static inject() { return [Element]; }
     @bindable data: any[];
     @bindable options: GridOptions;
 
-    constructor() {
+    constructor(private element: Element) {
+    }
+
+    attached() {
+        //alert(JSON.stringify(this.element.tagName));
     }
 }
