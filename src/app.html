@@ -1,0 +1,25 @@
+<template>
+    <require from="bootstrap/css/bootstrap.css"></require>
+    <div class="container">
+        <h1>Grid</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="dataJson">Data (json)</label>
+                <textarea class="form-control" value.bind="gridDataJson"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="dataOptionsJson">Options (json)</label>
+                <textarea class="form-control" value.bind="gridOptionJson"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary pull-right" click.delegate="apply()">Apply</button>
+            </div>
+        </form>
+
+        <grid data.bind="gridData" options.bind="gridOptions"></grid>
+
+    </div>
+</template>
