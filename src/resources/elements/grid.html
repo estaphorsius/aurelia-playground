@@ -2,12 +2,12 @@
     <table class="table table-listview">
         <thead>
             <tr>
-                <th repeat.for="column of options.columns">${column.display}</th>
+                <th repeat.for="column of options.columns" click.delegate="sort(column.name)">${column.display}</th>
             </tr>
         </thead>
         <tbody>
             <tr repeat.for="row of pageData">
-                <td repeat.for="column of options.columns">${row[column.name]}</td>
+                <td repeat.for="column of options.columns">${row[column.name] || '&nbsp;'}</td>
             </tr>
         </tbody>
         <tfoot>

@@ -3,6 +3,7 @@ import { bindable } from 'aurelia-framework'
 export class GridColumn {
     name: string;
     display: string;
+    sort: boolean;
 }
 
 export class GridOptions {
@@ -13,12 +14,13 @@ export class GridOptions {
 
 export class Grid {
     static inject() { return [Element]; }
-    @bindable data: any;
+    @bindable data: any[];
     @bindable options: GridOptions;
     @bindable promise: any;
     pageData: any;
     pageNumbers: number[];
     currentPage: number;
+    showPager: boolean;
 
     constructor(private element: Element) {
         this.currentPage = 1;
@@ -28,9 +30,12 @@ export class Grid {
         this.promise.then((result: any) => {
             this.data = result.content;
             this.pageData = this.getPageData();
-            this.pageNumbers = [];
-            for (var i = 1; i < this.getPageCount(); i++) {
-                this.pageNumbers.push(i);
+            if (this.data.length > this.options.pageSize) {
+                this.showPager = true;
+                this.pageNumbers = [];
+                for (var i = 1; i < this.getPageCount(); i++) {
+                    this.pageNumbers.push(i);
+                }
             }
         });
     }
@@ -41,8 +46,10 @@ export class Grid {
     }
 
     next() {
-        this.currentPage++;
-        this.pageData = this.getPageData();
+        if (this.currentPage + 1 < this.getPageCount()) {
+            this.currentPage++;
+            this.pageData = this.getPageData();
+        }
     }
 
     prev() {
@@ -52,7 +59,21 @@ export class Grid {
         }
     }
 
-    private getPageCount(): number{
+    sort(key: string) {
+        this.data.sort((a: any, b: any): number => {
+            var comparisonIndicator = 0;
+            if (a[key] < b[key])
+                comparisonIndicator = -1;
+            else
+                comparisonIndicator = 1;
+
+            return comparisonIndicator;
+        });
+
+        this.pageData = this.getPageData();
+    }
+
+    private getPageCount(): number {
         return Math.ceil(this.data.length / this.options.pageSize) + 1;
     }
 
@@ -62,6 +83,10 @@ export class Grid {
         if (index + elementCount > this.data.length) {
             elementCount = this.data.length - index;
         }
-        return this.data.slice(index, index + elementCount);
+        var result: any[] = this.data.slice(index, index + elementCount);
+        for (var i = result.length; i < this.options.pageSize; i++) {
+            result.push({});
+        }
+        return result;
     }
 }

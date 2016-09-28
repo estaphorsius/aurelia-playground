@@ -1,7 +1,7 @@
 [{
     "id": 1,
     "make": "Audi",
-    "model": "A6 Quattro",
+    "model": "A6 Avant Quattro 3.0 TFSI",
     "horsepower": "311PK"
 }, {
     "id": 2,
@@ -33,4 +33,24 @@
     "make": "Audi",
     "model": "RS3",
     "horsepower": "380PK"
+}, {
+    "id": 8,
+    "make": "BMW",
+    "model": "760Li",
+    "horsepower": "560PK"
+}, {
+    "id": 9,
+    "make": "Fiat",
+    "model": "500",
+    "horsepower": "72PK"
+}, {
+    "id": 10,
+    "make": "Audi",
+    "model": "R8",
+    "horsepower": "620PK"
+}, {
+    "id": 11,
+    "make": "Audi",
+    "model": "A4 Avant 2.0 TFSI",
+    "horsepower": "190PK"
 }]

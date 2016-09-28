@@ -20,12 +20,12 @@ export class App {
     setup() {
         this.gridOptions = {
             columns: [
-                { name: "make", display: "Make" },
-                { name: "model", display: "Model" },
-                { name: "horsepower", display: "Horsepower"}
+                { name: "make", display: "Make", sort: true },
+                { name: "model", display: "Model", sort: false },
+                { name: "horsepower", display: "Horsepower", sort: false }
             ],
             pagerEnabled: false,
-            pageSize: 3
+            pageSize: 10
         };
 
         this.gridDataJson = JSON.stringify(this.gridData, null, "   ");
