@@ -17,6 +17,7 @@ export class Grid {
     @bindable data: any[];
     @bindable options: GridOptions;
     @bindable promise: any;
+    @bindable rowselect: Function;
     pageData: any;
     pageNumbers: number[];
     currentPage: number;
@@ -71,6 +72,12 @@ export class Grid {
         });
 
         this.pageData = this.getPageData();
+    }
+
+    rowClick(rowData:any){
+        if(this.rowselect){
+            this.rowselect(rowData);
+        }
     }
 
     private getPageCount(): number {

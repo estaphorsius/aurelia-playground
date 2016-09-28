@@ -6,15 +6,16 @@ export class App {
     gridData: any;
     gridOptions: GridOptions;
 
-    gridDataJson: string;
-    gridOptionJson: string;
-
     constructor(private http: HttpClient) {
         this.setup();
     }
 
     fetch() {
         return this.http.get("src/cars.json");
+    }
+
+    rowSelect(data:any){
+        alert(`You selected the ${data.make} ${data.model}. This car has ${data.horsepower}.`);
     }
 
     setup() {
@@ -27,14 +28,5 @@ export class App {
             pagerEnabled: false,
             pageSize: 10
         };
-
-        this.gridDataJson = JSON.stringify(this.gridData, null, "   ");
-        this.gridOptionJson = JSON.stringify(this.gridOptions, null, "   ");
-
-    }
-
-    apply() {
-        this.gridData = JSON.parse(this.gridDataJson);
-        this.gridOptions = JSON.parse(this.gridOptionJson);
     }
 }

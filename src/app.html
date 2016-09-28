@@ -2,30 +2,6 @@
     <require from="bootstrap/css/bootstrap.css"></require>
     <div class="container">
         <h1>Grid</h1>
-
-        <form>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="dataJson">Data (json)</label>
-                        <textarea class="form-control" value.bind="gridDataJson" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="dataOptionsJson">Options (json)</label>
-                        <textarea class="form-control" value.bind="gridOptionJson" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary pull-right" click.delegate="apply()">Apply</button>
-            </div>
-        </form>
-
-        <grid promise.bind="fetch()" options.bind="gridOptions"></grid>
-
+        <grid promise.bind="fetch()" rowselect.bind="rowSelect" options.bind="gridOptions"></grid>
     </div>
 </template>
