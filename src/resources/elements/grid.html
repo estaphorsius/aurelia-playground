@@ -6,23 +6,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr repeat.for="row of data">
+            <tr repeat.for="row of pageData">
                 <td repeat.for="column of options.columns">${row[column.name]}</td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="${options.columns.length}">
+                <td colspan="${options.columns.length}" style="text-align: center;">
                     <nav>
                         <ul class="pagination">
-                            <li class="disabled">
-                                <span>
+                            <li>
+                                <a href="#" click.delegate="prev()">
                                   <span aria-hidden="true">&laquo;</span>
-                                </span>
+                                </a>
                             </li>
-                            <li class="active">
-                                <span>1 <span class="sr-only">(current)</span></span>
+                            <li repeat.for="pageNumber of pageNumbers" class="${currentPage == pageNumber ? 'active' : ''}" click.delegate="goto(pageNumber)">
+                                <span>${pageNumber} <span class="sr-only">(current)</span></span>
                             </li>
+                            <li>
+                                <a href="#" aria-label="Next" click.delegate="next()">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>                            
                         </ul>
                     </nav>
                 </td>

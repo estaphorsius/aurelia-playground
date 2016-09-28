@@ -1,0 +1,36 @@
+[{
+    "id": 1,
+    "make": "Audi",
+    "model": "A6 Quattro",
+    "horsepower": "311PK"
+}, {
+    "id": 2,
+    "make": "BMW",
+    "model": "535i",
+    "horsepower": "306PK"
+}, {
+    "id": 3,
+    "make": "Mercedes",
+    "model": "E350",
+    "horsepower": "292PK"
+}, {
+    "id": 4,
+    "make": "Tesla",
+    "model": "Model S P90D",
+    "horsepower": "420PK"
+}, {
+    "id": 5,
+    "make": "Audi",
+    "model": "RS6",
+    "horsepower": "580PK"
+}, {
+    "id": 6,
+    "make": "Audi",
+    "model": "RS5",
+    "horsepower": "450PK"
+}, {
+    "id": 7,
+    "make": "Audi",
+    "model": "RS3",
+    "horsepower": "380PK"
+}]
